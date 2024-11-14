@@ -1,0 +1,3 @@
+/mnt/c/Users/carlo/Desktop/uni/programacion/-Gesti-n-de-la-memoria/build/CMakeFiles/GestionDeLaMemoria.dir
+/mnt/c/Users/carlo/Desktop/uni/programacion/-Gesti-n-de-la-memoria/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/carlo/Desktop/uni/programacion/-Gesti-n-de-la-memoria/build/CMakeFiles/rebuild_cache.dir
