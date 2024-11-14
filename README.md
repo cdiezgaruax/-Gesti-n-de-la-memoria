@@ -71,11 +71,61 @@ int main() {
    - **Proceso Padre**:  
      Escribe el mensaje `"Hello, child process!"` en la memoria compartida, espera la finalización del hijo con `wait(NULL)`, y luego libera la memoria.
 
-## Resumen
+## Configuración y Ejecución del Proyecto en C con WSL y CMake en Windows
 
-Este programa demuestra cómo usar `mmap` para compartir memoria entre un proceso padre e hijo, permitiendo que el hijo lea un mensaje escrito por el padre en la memoria compartida.
-Si el valor devuelto es 0, significa que estamos en el proceso hijo. En este caso, leemos y mostramos la memoria compartida y luego liberamos la memoria utilizando la función munmap().
+Para compilar y ejecutar tu proyecto en C usando CMake en un entorno de Linux dentro de Windows, seguiste estos pasos:
 
-Si el valor devuelto por fork() es mayor que 0, significa que estamos en el proceso padre. En este caso, escribimos en la memoria compartida, esperamos a que el proceso hijo termine y luego liberamos la memoria.
+### 1. Instalación de WSL (Windows Subsystem for Linux)
 
-Espero que esta explicación te ayude a entender mejor el código. Si tienes más preguntas, no dudes en hacerlas.
+1. **Abrir PowerShell como Administrador** y ejecutar:
+   ```bash
+   wsl --install
+   ```
+   Esto instala WSL y configura una versión de Linux en tu sistema. Después de este paso, es posible que debas **reiniciar tu ordenador**.
+
+2. **Instalar una Distribución de Linux**:
+   - Abre Microsoft Store, busca una distribución como **Ubuntu** e instálala.
+   - Una vez instalada, ábrela desde el menú de inicio y completa la configuración inicial creando un usuario y contraseña para Linux.
+
+### 2. Configuración de WSL
+
+1. **Actualizar los Paquetes de Linux**:
+   Una vez que WSL está configurado y tienes acceso a tu distribución de Linux (como Ubuntu), ejecuta los siguientes comandos para actualizar los paquetes:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   ```
+
+2. **Instalar CMake y Herramientas de Desarrollo**:
+   Para compilar proyectos en C, necesitas instalar `CMake` y `build-essential` (este último incluye herramientas como `gcc` y `make`):
+   ```bash
+   sudo apt install cmake build-essential
+   ```
+
+### 3. Configuración y Compilación de tu Proyecto
+
+1. **Navegar al Directorio de tu Proyecto**:
+   Si tu proyecto está en Windows, navega a él desde WSL utilizando la ruta `/mnt/c/...`. Por ejemplo:
+   ```bash
+   cd /mnt/c/path/to/your/project
+   ```
+
+2. **Crear un Directorio de Compilación y Ejecutar CMake**:
+   Para mantener organizada la estructura del proyecto, crea un directorio `build` y compila el proyecto desde allí:
+   ```bash
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ```
+
+### 4. Ejecutar tu Proyecto
+
+   Una vez compilado, ejecuta el archivo generado:
+   ```bash
+   ./GestionDeLaMemoria
+   ```
+
+---
+
+Estos pasos completan la configuración de WSL y la compilación de tu proyecto en C usando CMake. Esto te permite trabajar en un entorno de Linux directamente en Windows, facilitando la compilación y ejecución de proyectos de C.
